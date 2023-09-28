@@ -88,7 +88,7 @@ app.post("/districts/", async (request, response) => {
   INSERT INTO
     districts(district_name, state_id, cases, cured, active, deaths)
   VALUES
-    ('${districtName}', ${stateId}, ${cases},${cured},${active},${deaths},);`;
+    ('${districtName}', ${stateId}, ${cases},${cured},${active},${deaths});`;
   response.send("District Successfully Added");
 });
 module.exports = app;
@@ -131,7 +131,7 @@ module.exports = app;
 
 //UPDATE DISTRICT API
 
-app.put("/districts/:districtId", async (request, response) => {
+app.put("/districts/:districtId/", async (request, response) => {
   const { districtId } = request.params;
   const districtDetails = request.body;
 
